@@ -167,7 +167,14 @@ final class LoginController: UIViewController {
                 return
             }
             
-            print("Successfully logged user in")
+            guard let homeViewController = UIApplication.shared.windows.filter({
+                $0.isKeyWindow
+            }).first?.rootViewController as? HomeController else {
+                return
+            }
+
+            homeViewController.configureUI()
+            self.dismiss(animated: true)
         }
     }
 }
