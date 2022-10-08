@@ -150,8 +150,8 @@
 		99F05E1728F1903400C4E48C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
-				99F05E1928F191A200C4E48C /* SignUpController.swift */,
 				99F05E0728F18A0B00C4E48C /* LoginController.swift */,
+				99F05E1928F191A200C4E48C /* SignUpController.swift */,
 				99F05E0E28F18EFD00C4E48C /* AuthButton.swift */,
 			);
 			path = Authentication;
