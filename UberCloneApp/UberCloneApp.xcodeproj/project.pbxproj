@@ -12,6 +12,8 @@
 		99F05DF628F187B100C4E48C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F05DF528F187B100C4E48C /* Assets.xcassets */; };
 		99F05DF928F187B100C4E48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */; };
 		99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0728F18A0B00C4E48C /* LoginController.swift */; };
+		99F05E0B28F18BD700C4E48C /* UIColor + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0A28F18BD700C4E48C /* UIColor + ext.swift */; };
+		99F05E0D28F18DA700C4E48C /* UIView + AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0C28F18DA700C4E48C /* UIView + AutoLayout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		99F05DF828F187B100C4E48C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F05DFA28F187B100C4E48C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99F05E0728F18A0B00C4E48C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		99F05E0A28F18BD700C4E48C /* UIColor + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + ext.swift"; sourceTree = "<group>"; };
+		99F05E0C28F18DA700C4E48C /* UIView + AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + AutoLayout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +101,8 @@
 		99F05E0528F189D100C4E48C /* Utilis */ = {
 			isa = PBXGroup;
 			children = (
+				99F05E0A28F18BD700C4E48C /* UIColor + ext.swift */,
+				99F05E0C28F18DA700C4E48C /* UIView + AutoLayout.swift */,
 			);
 			path = Utilis;
 			sourceTree = "<group>";
@@ -193,6 +199,8 @@
 				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
 				99F05DED28F187B100C4E48C /* AppDelegate.swift in Sources */,
 				99F05DEF28F187B100C4E48C /* SceneDelegate.swift in Sources */,
+				99F05E0D28F18DA700C4E48C /* UIView + AutoLayout.swift in Sources */,
+				99F05E0B28F18BD700C4E48C /* UIColor + ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
