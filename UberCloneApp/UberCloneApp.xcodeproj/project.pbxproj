@@ -9,21 +9,19 @@
 /* Begin PBXBuildFile section */
 		99F05DED28F187B100C4E48C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05DEC28F187B100C4E48C /* AppDelegate.swift */; };
 		99F05DEF28F187B100C4E48C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05DEE28F187B100C4E48C /* SceneDelegate.swift */; };
-		99F05DF128F187B100C4E48C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05DF028F187B100C4E48C /* ViewController.swift */; };
-		99F05DF428F187B100C4E48C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F05DF228F187B100C4E48C /* Main.storyboard */; };
 		99F05DF628F187B100C4E48C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F05DF528F187B100C4E48C /* Assets.xcassets */; };
 		99F05DF928F187B100C4E48C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */; };
+		99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0728F18A0B00C4E48C /* LoginController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		99F05DE928F187B100C4E48C /* UberCloneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberCloneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F05DEC28F187B100C4E48C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F05DEE28F187B100C4E48C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		99F05DF028F187B100C4E48C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		99F05DF328F187B100C4E48C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		99F05DF528F187B100C4E48C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		99F05DF828F187B100C4E48C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		99F05DFA28F187B100C4E48C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99F05E0728F18A0B00C4E48C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +54,70 @@
 		99F05DEB28F187B100C4E48C /* UberCloneApp */ = {
 			isa = PBXGroup;
 			children = (
-				99F05DEC28F187B100C4E48C /* AppDelegate.swift */,
-				99F05DEE28F187B100C4E48C /* SceneDelegate.swift */,
-				99F05DF028F187B100C4E48C /* ViewController.swift */,
-				99F05DF228F187B100C4E48C /* Main.storyboard */,
-				99F05DF528F187B100C4E48C /* Assets.xcassets */,
-				99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */,
-				99F05DFA28F187B100C4E48C /* Info.plist */,
+				99F05E0928F18A2900C4E48C /* Application */,
+				99F05E0328F189B500C4E48C /* Model */,
+				99F05E0228F189B100C4E48C /* View */,
+				99F05E0028F189AD00C4E48C /* Controller */,
+				99F05E0428F189CD00C4E48C /* Service */,
+				99F05E0528F189D100C4E48C /* Utilis */,
+				99F05E0628F189E300C4E48C /* Resources */,
 			);
 			path = UberCloneApp;
+			sourceTree = "<group>";
+		};
+		99F05E0028F189AD00C4E48C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99F05E0728F18A0B00C4E48C /* LoginController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		99F05E0228F189B100C4E48C /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		99F05E0328F189B500C4E48C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		99F05E0428F189CD00C4E48C /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		99F05E0528F189D100C4E48C /* Utilis */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilis;
+			sourceTree = "<group>";
+		};
+		99F05E0628F189E300C4E48C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */,
+				99F05DFA28F187B100C4E48C /* Info.plist */,
+				99F05DF528F187B100C4E48C /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		99F05E0928F18A2900C4E48C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				99F05DEC28F187B100C4E48C /* AppDelegate.swift */,
+				99F05DEE28F187B100C4E48C /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +180,6 @@
 			files = (
 				99F05DF928F187B100C4E48C /* LaunchScreen.storyboard in Resources */,
 				99F05DF628F187B100C4E48C /* Assets.xcassets in Resources */,
-				99F05DF428F187B100C4E48C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +190,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99F05DF128F187B100C4E48C /* ViewController.swift in Sources */,
+				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
 				99F05DED28F187B100C4E48C /* AppDelegate.swift in Sources */,
 				99F05DEF28F187B100C4E48C /* SceneDelegate.swift in Sources */,
 			);
@@ -147,14 +199,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		99F05DF228F187B100C4E48C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				99F05DF328F187B100C4E48C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -289,10 +333,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ARQ22Y2Z2Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = UberCloneApp/Info.plist;
+				INFOPLIST_FILE = UberCloneApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,10 +360,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = ARQ22Y2Z2Z;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = UberCloneApp/Info.plist;
+				INFOPLIST_FILE = UberCloneApp/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
