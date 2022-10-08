@@ -21,6 +21,7 @@
 		99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1528F18FB900C4E48C /* UITextField.swift */; };
 		99F05E1A28F191A200C4E48C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1928F191A200C4E48C /* SignUpController.swift */; };
 		99F05E1C28F19AE500C4E48C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */; };
+		99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1E28F1AEBB00C4E48C /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		99F05E1528F18FB900C4E48C /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		99F05E1928F191A200C4E48C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		99F05E1E28F1AEBB00C4E48C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		A2ADCC8CE6C253598AD2A849 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6004C20360952E03A52C2 /* Pods-UberCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneApp.release.xcconfig"; path = "Target Support Files/Pods-UberCloneApp/Pods-UberCloneApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				99F05E1728F1903400C4E48C /* Authentication */,
+				99F05E1D28F1AEAB00C4E48C /* Main */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -175,13 +178,20 @@
 			path = Authentication;
 			sourceTree = "<group>";
 		};
+		99F05E1D28F1AEAB00C4E48C /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				99F05E1E28F1AEBB00C4E48C /* HomeController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
 		D676F18C17DC640A174F091E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
 				06DEF712CA462988B51F8E7E /* Pods-UberCloneApp.debug.xcconfig */,
 				E5D6004C20360952E03A52C2 /* Pods-UberCloneApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -302,6 +312,7 @@
 			files = (
 				99F05E1428F18F9500C4E48C /* UIView.swift in Sources */,
 				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
+				99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */,
 				99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */,
 				99F05E0F28F18EFD00C4E48C /* AuthButton.swift in Sources */,
 				99F05DED28F187B100C4E48C /* AppDelegate.swift in Sources */,
