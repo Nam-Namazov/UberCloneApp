@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 final class LoginController: UIViewController {
     private let logoLabel: UILabel = {
@@ -155,6 +156,18 @@ final class LoginController: UIViewController {
     
     @objc
     private func onLogin() {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
         
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Failed to log user in with error \(error.localizedDescription)")
+                return
+            }
+            
+            print("Successfully logged user in")
+        }
     }
 }
