@@ -16,6 +16,4 @@ extension UIColor {
                        blue: blue/255,
                        alpha: 1)
     }
-
-    static let uber = UIColor.rgb(red: 25, green: 25, blue: 25)
 }

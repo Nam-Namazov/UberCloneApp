@@ -14,6 +14,11 @@
 		99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0728F18A0B00C4E48C /* LoginController.swift */; };
 		99F05E0B28F18BD700C4E48C /* UIColor + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0A28F18BD700C4E48C /* UIColor + ext.swift */; };
 		99F05E0D28F18DA700C4E48C /* UIView + AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0C28F18DA700C4E48C /* UIView + AutoLayout.swift */; };
+		99F05E0F28F18EFD00C4E48C /* AuthButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E0E28F18EFD00C4E48C /* AuthButton.swift */; };
+		99F05E1228F18F4300C4E48C /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1128F18F4300C4E48C /* Colors.swift */; };
+		99F05E1428F18F9500C4E48C /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1328F18F9500C4E48C /* UIView.swift */; };
+		99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1528F18FB900C4E48C /* UITextField.swift */; };
+		99F05E1A28F191A200C4E48C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1928F191A200C4E48C /* SignUpController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +31,11 @@
 		99F05E0728F18A0B00C4E48C /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		99F05E0A28F18BD700C4E48C /* UIColor + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + ext.swift"; sourceTree = "<group>"; };
 		99F05E0C28F18DA700C4E48C /* UIView + AutoLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + AutoLayout.swift"; sourceTree = "<group>"; };
+		99F05E0E28F18EFD00C4E48C /* AuthButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthButton.swift; sourceTree = "<group>"; };
+		99F05E1128F18F4300C4E48C /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		99F05E1328F18F9500C4E48C /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		99F05E1528F18FB900C4E48C /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		99F05E1928F191A200C4E48C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,20 +71,21 @@
 				99F05E0928F18A2900C4E48C /* Application */,
 				99F05E0328F189B500C4E48C /* Model */,
 				99F05E0228F189B100C4E48C /* View */,
-				99F05E0028F189AD00C4E48C /* Controller */,
+				99F05E0028F189AD00C4E48C /* Modules */,
 				99F05E0428F189CD00C4E48C /* Service */,
+				99F05E1028F18F3400C4E48C /* Constants */,
 				99F05E0528F189D100C4E48C /* Utilis */,
 				99F05E0628F189E300C4E48C /* Resources */,
 			);
 			path = UberCloneApp;
 			sourceTree = "<group>";
 		};
-		99F05E0028F189AD00C4E48C /* Controller */ = {
+		99F05E0028F189AD00C4E48C /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				99F05E0728F18A0B00C4E48C /* LoginController.swift */,
+				99F05E1728F1903400C4E48C /* Authentication */,
 			);
-			path = Controller;
+			path = Modules;
 			sourceTree = "<group>";
 		};
 		99F05E0228F189B100C4E48C /* View */ = {
@@ -103,6 +114,8 @@
 			children = (
 				99F05E0A28F18BD700C4E48C /* UIColor + ext.swift */,
 				99F05E0C28F18DA700C4E48C /* UIView + AutoLayout.swift */,
+				99F05E1328F18F9500C4E48C /* UIView.swift */,
+				99F05E1528F18FB900C4E48C /* UITextField.swift */,
 			);
 			path = Utilis;
 			sourceTree = "<group>";
@@ -124,6 +137,24 @@
 				99F05DEE28F187B100C4E48C /* SceneDelegate.swift */,
 			);
 			path = Application;
+			sourceTree = "<group>";
+		};
+		99F05E1028F18F3400C4E48C /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				99F05E1128F18F4300C4E48C /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		99F05E1728F1903400C4E48C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				99F05E1928F191A200C4E48C /* SignUpController.swift */,
+				99F05E0728F18A0B00C4E48C /* LoginController.swift */,
+				99F05E0E28F18EFD00C4E48C /* AuthButton.swift */,
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,8 +227,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99F05E1428F18F9500C4E48C /* UIView.swift in Sources */,
 				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
+				99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */,
+				99F05E0F28F18EFD00C4E48C /* AuthButton.swift in Sources */,
 				99F05DED28F187B100C4E48C /* AppDelegate.swift in Sources */,
+				99F05E1A28F191A200C4E48C /* SignUpController.swift in Sources */,
+				99F05E1228F18F4300C4E48C /* Colors.swift in Sources */,
 				99F05DEF28F187B100C4E48C /* SceneDelegate.swift in Sources */,
 				99F05E0D28F18DA700C4E48C /* UIView + AutoLayout.swift in Sources */,
 				99F05E0B28F18BD700C4E48C /* UIColor + ext.swift in Sources */,
