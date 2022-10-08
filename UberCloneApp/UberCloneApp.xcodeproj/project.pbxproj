@@ -144,8 +144,8 @@
 			isa = PBXGroup;
 			children = (
 				99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */,
-				99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */,
 				99F05DFA28F187B100C4E48C /* Info.plist */,
+				99F05DF728F187B100C4E48C /* LaunchScreen.storyboard */,
 				99F05DF528F187B100C4E48C /* Assets.xcassets */,
 			);
 			path = Resources;
