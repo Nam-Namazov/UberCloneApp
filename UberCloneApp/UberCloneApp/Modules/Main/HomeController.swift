@@ -58,10 +58,12 @@ final class HomeController: UIViewController {
         locationInputView.anchor(top: view.topAnchor, left: view.leftAnchor, right: view.rightAnchor, height: locationInputViewHeight)
         locationInputView.alpha = 0
         
-        UIView.animate(withDuration: 0.5, animations: { [weak self] in
-            self?.locationInputView.alpha = 1
+        UIView.animate(withDuration: 0.5, animations: {
+            self.locationInputView.alpha = 1
         }) { _ in
-            print("present tableview")
+            UIView.animate(withDuration: 0.3) {
+                self.tableView.frame.origin.y = self.locationInputViewHeight
+            }
         }
     }
     
@@ -147,8 +149,11 @@ extension HomeController: LocationInputActivationViewDelegate {
 // MARK: - LocationInputViewDelegate
 extension HomeController: LocationInputViewDelegate {
     func dismisslocationInputView() {
+        locationInputView.removeFromSuperview()
+        
         UIView.animate(withDuration: 0.3, animations: {
             self.locationInputView.alpha = 0
+            self.tableView.frame.origin.y = self.view.frame.height
         }) { _ in
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
