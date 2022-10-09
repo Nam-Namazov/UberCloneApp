@@ -24,6 +24,7 @@
 		99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1E28F1AEBB00C4E48C /* HomeController.swift */; };
 		99F05E2228F29BAD00C4E48C /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */; };
 		99F05E2428F29FA800C4E48C /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2328F29FA800C4E48C /* LocationInputView.swift */; };
+		99F05E2628F2A53F00C4E48C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2528F2A53F00C4E48C /* LocationCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		99F05E1E28F1AEBB00C4E48C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 		99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
 		99F05E2328F29FA800C4E48C /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
+		99F05E2528F2A53F00C4E48C /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		A2ADCC8CE6C253598AD2A849 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6004C20360952E03A52C2 /* Pods-UberCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneApp.release.xcconfig"; path = "Target Support Files/Pods-UberCloneApp/Pods-UberCloneApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,6 +198,7 @@
 			children = (
 				99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */,
 				99F05E2328F29FA800C4E48C /* LocationInputView.swift */,
+				99F05E2528F2A53F00C4E48C /* LocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
 				99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */,
 				99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */,
+				99F05E2628F2A53F00C4E48C /* LocationCell.swift in Sources */,
 				99F05E0F28F18EFD00C4E48C /* AuthButton.swift in Sources */,
 				99F05DED28F187B100C4E48C /* AppDelegate.swift in Sources */,
 				99F05E1A28F191A200C4E48C /* SignUpController.swift in Sources */,
