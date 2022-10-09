@@ -15,6 +15,18 @@ protocol LocationInputViewDelegate: AnyObject {
 final class LocationInputView: UIView {
     
     weak var delegate: LocationInputViewDelegate?
+    var user: User? {
+        didSet {
+            fullnameTitleLabel.text = user?.fullname
+        }
+    }
+    
+    let fullnameTitleLabel: UILabel = {
+        let fullnameTitleLabel = UILabel()
+        fullnameTitleLabel.font = UIFont.systemFont(ofSize: 16)
+        fullnameTitleLabel.textColor = .darkGray
+        return fullnameTitleLabel
+    }()
     
     private lazy var backButton: UIButton = {
         let backButton = UIButton(type: .system)
@@ -25,14 +37,6 @@ final class LocationInputView: UIView {
             for: .normal
         )
         return backButton
-    }()
-    
-    let fullnameTitleLabel: UILabel = {
-        let fullnameTitleLabel = UILabel()
-        fullnameTitleLabel.text = "John Doe"
-        fullnameTitleLabel.font = UIFont.systemFont(ofSize: 16)
-        fullnameTitleLabel.textColor = .darkGray
-        return fullnameTitleLabel
     }()
     
     private let startLocationIndicatorView: UIView = {
