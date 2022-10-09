@@ -173,7 +173,7 @@ final class LoginController: UIViewController {
                 return
             }
 
-            homeViewController.configureUI()
+            homeViewController.configure()
             self.dismiss(animated: true)
         }
     }

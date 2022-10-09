@@ -27,27 +27,31 @@ final class HomeController: UIViewController {
         super.viewDidLoad()
         checkIfUserLoggedIn()
         enableLocationServices()
-        fetchUserData()
-        fetchDrivers()
 //        signOut()
     }
+    
+    func configure() {
+        configureUI()
+        fetchUserData()
+        fetchDrivers()
+    }
 
-    func configureUI() {
+    private func configureUI() {
         configureMapView()
         configureInputActivationView()
         configureTableView()
     }
     
     private func configureInputActivationView() {
+        inputActivationView.delegate = self
         view.addSubview(inputActivationView)
         inputActivationView.centerX(inView: view)
         inputActivationView.setDimensions(height: 50,
                                           width: view.frame.width - 64)
         inputActivationView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
                                    paddingTop: 32)
-        inputActivationView.delegate = self
         inputActivationView.alpha = 0
-        UIView.animate(withDuration: 2) {
+        UIView.animate(withDuration: 0.5) {
             self.inputActivationView.alpha = 1
         }
     }
@@ -111,8 +115,6 @@ final class HomeController: UIViewController {
             let annotation = DriverAnnotation(uid: driver.uid,
                                               coordinate: coordinate)
             
-            print("driver coordinate is \(coordinate)")
-            
             var driverIsVisible: Bool {
                 return self.mapView.annotations.contains { annotation -> Bool in
                     guard let driverAnno = annotation as? DriverAnnotation else {
@@ -141,7 +143,7 @@ final class HomeController: UIViewController {
                 self.present(navLogin, animated: false)
             }
         } else {
-            configureUI()
+            configure()
         }
     }
     
