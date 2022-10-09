@@ -28,6 +28,7 @@
 		99F05E2828F2BF1D00C4E48C /* MKPlacemark + Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2728F2BF1D00C4E48C /* MKPlacemark + Address.swift */; };
 		99F05E2A28F2CE0500C4E48C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2928F2CE0500C4E48C /* Service.swift */; };
 		99F05E2C28F2D6D300C4E48C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2B28F2D6D300C4E48C /* User.swift */; };
+		99F05E2E28F305C000C4E48C /* LocationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2D28F305C000C4E48C /* LocationHandler.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,7 @@
 		99F05E2728F2BF1D00C4E48C /* MKPlacemark + Address.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKPlacemark + Address.swift"; sourceTree = "<group>"; };
 		99F05E2928F2CE0500C4E48C /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		99F05E2B28F2D6D300C4E48C /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		99F05E2D28F305C000C4E48C /* LocationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationHandler.swift; sourceTree = "<group>"; };
 		A2ADCC8CE6C253598AD2A849 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6004C20360952E03A52C2 /* Pods-UberCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneApp.release.xcconfig"; path = "Target Support Files/Pods-UberCloneApp/Pods-UberCloneApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -139,6 +141,7 @@
 			isa = PBXGroup;
 			children = (
 				99F05E2928F2CE0500C4E48C /* Service.swift */,
+				99F05E2D28F305C000C4E48C /* LocationHandler.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				99F05E1428F18F9500C4E48C /* UIView.swift in Sources */,
 				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
 				99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */,
+				99F05E2E28F305C000C4E48C /* LocationHandler.swift in Sources */,
 				99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */,
 				99F05E2628F2A53F00C4E48C /* LocationCell.swift in Sources */,
 				99F05E0F28F18EFD00C4E48C /* AuthButton.swift in Sources */,
