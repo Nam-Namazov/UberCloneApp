@@ -22,4 +22,3 @@ final class DriverAnnotation: NSObject, MKAnnotation {
         }
     }
 }
-
