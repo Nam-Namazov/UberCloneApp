@@ -15,6 +15,7 @@ final class HomeController: UIViewController {
     private let inputActivationView = LocationInputActivationView()
     private let locationInputView = LocationInputView()
     private let tableView = UITableView()
+    private let annotationIdentifier = "DriverAnnotation"
     private final let locationInputViewHeight: CGFloat = 200
     private var user: User? {
         didSet {
@@ -57,6 +58,7 @@ final class HomeController: UIViewController {
         
         mapView.showsUserLocation = true
         mapView.userTrackingMode = .follow
+        mapView.delegate = self
     }
     
     private func configureLocationInputView() {
@@ -216,5 +218,21 @@ extension HomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+}
+
+// MARK: - MKMapViewDelegate
+extension HomeController: MKMapViewDelegate {
+    func mapView(_ mapView: MKMapView,
+                 viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if let annotation = annotation as? DriverAnnotation {
+            let view = MKAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: annotationIdentifier
+            )
+            view.image = UIImage(named: "chevron-sign-to-right")
+            return view
+        }
+        return nil
     }
 }
