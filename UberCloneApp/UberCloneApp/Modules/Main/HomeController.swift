@@ -236,6 +236,10 @@ extension HomeController: UITableViewDataSource {
             for: indexPath) as? LocationCell else {
             return UITableViewCell()
         }
+        
+        if indexPath.section == 1 {
+            cell.placemark = searchResults[indexPath.row]
+        }
         return cell
     }
 }
