@@ -27,6 +27,7 @@ final class HomeController: UIViewController {
         checkIfUserLoggedIn()
         enableLocationServices()
         fetchUserData()
+        fetchDrivers()
 //        signOut()
     }
 
@@ -90,8 +91,18 @@ final class HomeController: UIViewController {
     }
     
     private func fetchUserData() {
-        Service.shared.fetchUserData { user in
+        guard let currentUid = Auth.auth().currentUser?.uid else { return }
+        Service.shared.fetchUserData(uid: currentUid) { user in
             self.user = user
+        }
+    }
+    
+    private func fetchDrivers() {
+        guard let location = locationManager?.location else { return }
+        Service.shared.fetchDrivers(location: location) { driver in
+            guard let coordinate = driver.location?.coordinate else { return }
+            let annotation = DriverAnnotation(uid: driver.uid, coordinate: coordinate)
+            self.mapView.addAnnotation(annotation)
         }
     }
     

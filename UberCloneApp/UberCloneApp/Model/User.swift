@@ -18,9 +18,10 @@ struct User {
     let email: String
     var accountType: AccountType!
     var location: CLLocation?
-//    let uid: String
+    let uid: String
     
-    init(dictionary: [String: Any]) {
+    init(uid: String, dictionary: [String: Any]) {
+        self.uid = uid
         fullname = dictionary["fullname"] as? String ?? ""
         email = dictionary["email"] as? String ?? ""
         
