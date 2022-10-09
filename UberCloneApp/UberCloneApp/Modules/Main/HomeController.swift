@@ -16,11 +16,17 @@ final class HomeController: UIViewController {
     private let locationInputView = LocationInputView()
     private let tableView = UITableView()
     private final let locationInputViewHeight: CGFloat = 200
-
+    private var user: User? {
+        didSet {
+            locationInputView.user = user
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserLoggedIn()
         enableLocationServices()
+        fetchUserData()
 //        signOut()
     }
 
@@ -81,6 +87,12 @@ final class HomeController: UIViewController {
                                  height: height)
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)
+    }
+    
+    private func fetchUserData() {
+        Service.shared.fetchUserData { user in
+            self.user = user
+        }
     }
     
     private func checkIfUserLoggedIn() {
