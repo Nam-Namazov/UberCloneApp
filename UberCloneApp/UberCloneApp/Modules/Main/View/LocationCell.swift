@@ -10,11 +10,42 @@ import UIKit
 final class LocationCell: UITableViewCell {
     static let identifier = "LocationCell"
     
+    private let placeTitleLabel: UILabel = {
+        let placeTitleLabel = UILabel()
+        placeTitleLabel.font = .boldSystemFont(ofSize: 14)
+        placeTitleLabel.text = "place title"
+        return placeTitleLabel
+    }()
+    
+    private let addressLabel: UILabel = {
+        let addressLabel = UILabel()
+        addressLabel.font = .systemFont(ofSize: 14)
+        addressLabel.textColor = .lightGray
+        addressLabel.numberOfLines = 1
+        addressLabel.lineBreakMode = .byTruncatingTail
+        addressLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-30).isActive = true
+        addressLabel.text = "address"
+        return addressLabel
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        layout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func layout() {
+        let verticalStackView = UIStackView(arrangedSubviews: [placeTitleLabel, addressLabel])
+        verticalStackView.axis = .vertical
+        verticalStackView.distribution = .fillEqually
+        verticalStackView.spacing = 4
+        
+        addSubview(verticalStackView)
+        verticalStackView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
+        
+        addSubview(verticalStackView)
     }
 }

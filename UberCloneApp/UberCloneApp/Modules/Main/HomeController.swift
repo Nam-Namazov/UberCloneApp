@@ -16,14 +16,14 @@ final class HomeController: UIViewController {
     private let locationInputView = LocationInputView()
     private let tableView = UITableView()
     private final let locationInputViewHeight: CGFloat = 200
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         checkIfUserLoggedIn()
         enableLocationServices()
 //        signOut()
     }
-    
+
     func configureUI() {
         configureMapView()
         configureInputActivationView()
@@ -79,6 +79,7 @@ final class HomeController: UIViewController {
                                  y: view.frame.height,
                                  width: view.frame.width,
                                  height: height)
+        tableView.tableFooterView = UIView()
         view.addSubview(tableView)
     }
     
@@ -149,12 +150,11 @@ extension HomeController: LocationInputActivationViewDelegate {
 // MARK: - LocationInputViewDelegate
 extension HomeController: LocationInputViewDelegate {
     func dismisslocationInputView() {
-        locationInputView.removeFromSuperview()
-        
         UIView.animate(withDuration: 0.3, animations: {
             self.locationInputView.alpha = 0
             self.tableView.frame.origin.y = self.view.frame.height
         }) { _ in
+            self.locationInputView.removeFromSuperview()
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
             }
@@ -169,8 +169,16 @@ extension HomeController: LocationInputViewDelegate {
 // MARK: - UITableViewDataSource
 extension HomeController: UITableViewDataSource {
     func tableView(_ tableView: UITableView,
+                   titleForHeaderInSection section: Int) -> String? {
+        return "Test"
+    }
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return section == 0 ? 2 : 5
     }
     
     func tableView(_ tableView: UITableView,
