@@ -22,6 +22,7 @@
 		99F05E1A28F191A200C4E48C /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1928F191A200C4E48C /* SignUpController.swift */; };
 		99F05E1C28F19AE500C4E48C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */; };
 		99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1E28F1AEBB00C4E48C /* HomeController.swift */; };
+		99F05E2228F29BAD00C4E48C /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		99F05E1928F191A200C4E48C /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
 		99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		99F05E1E28F1AEBB00C4E48C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
 		A2ADCC8CE6C253598AD2A849 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6004C20360952E03A52C2 /* Pods-UberCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneApp.release.xcconfig"; path = "Target Support Files/Pods-UberCloneApp/Pods-UberCloneApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -181,9 +183,18 @@
 		99F05E1D28F1AEAB00C4E48C /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				99F05E2028F29B9900C4E48C /* View */,
 				99F05E1E28F1AEBB00C4E48C /* HomeController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		99F05E2028F29B9900C4E48C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D676F18C17DC640A174F091E /* Pods */ = {
@@ -320,6 +331,7 @@
 				99F05E1228F18F4300C4E48C /* Colors.swift in Sources */,
 				99F05DEF28F187B100C4E48C /* SceneDelegate.swift in Sources */,
 				99F05E0D28F18DA700C4E48C /* UIView + AutoLayout.swift in Sources */,
+				99F05E2228F29BAD00C4E48C /* LocationInputActivationView.swift in Sources */,
 				99F05E0B28F18BD700C4E48C /* UIColor + ext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

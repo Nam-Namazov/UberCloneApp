@@ -12,6 +12,7 @@ import MapKit
 final class HomeController: UIViewController {
     private let mapView = MKMapView()
     private let locationManager = CLLocationManager()
+    private let inputActivationView = LocationInputActivationView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,9 +23,24 @@ final class HomeController: UIViewController {
     
     func configureUI() {
         configureMapView()
+        configureInputActivationView()
     }
     
-    func configureMapView() {
+    private func configureInputActivationView() {
+        view.addSubview(inputActivationView)
+        inputActivationView.centerX(inView: view)
+        inputActivationView.setDimensions(height: 50,
+                                          width: view.frame.width - 64)
+        inputActivationView.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                                   paddingTop: 32)
+        inputActivationView.delegate = self
+        inputActivationView.alpha = 0
+        UIView.animate(withDuration: 2) {
+            self.inputActivationView.alpha = 1
+        }
+    }
+    
+    private func configureMapView() {
         view.addSubview(mapView)
         mapView.frame = view.frame
         
@@ -86,5 +102,12 @@ extension HomeController: CLLocationManagerDelegate {
         if status == .authorizedWhenInUse {
             locationManager.requestAlwaysAuthorization()
         }
+    }
+}
+
+// MARK: - LocationInputActivationViewDelegate
+extension HomeController: LocationInputActivationViewDelegate {
+    func presentLocationInputView() {
+        print("delegate")
     }
 }
