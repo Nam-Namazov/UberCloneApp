@@ -84,6 +84,7 @@ final class LocationInputView: UIView {
         paddingView.setDimensions(height: 30, width: 8)
         destinationLocationTextField.leftView = paddingView
         destinationLocationTextField.leftViewMode = .always
+        destinationLocationTextField.delegate = self 
         return destinationLocationTextField
     }()
 

@@ -17,6 +17,7 @@ final class HomeController: UIViewController {
     private let tableView = UITableView()
     private let annotationIdentifier = "DriverAnnotation"
     private final let locationInputViewHeight: CGFloat = 200
+    private var searchResults = [MKPlacemark]()
     private var user: User? {
         didSet {
             locationInputView.user = user
@@ -205,7 +206,11 @@ extension HomeController: LocationInputViewDelegate {
     }
     
     func executeSearch(query: String) {
-        
+        searchBy(naturalLanguageQuery: query) { [weak self] results in
+            guard let self = self else { return }
+            self.searchResults = results
+            self.tableView.reloadData()
+        }
     }
 }
 
@@ -221,7 +226,7 @@ extension HomeController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? 2 : 5
+        return section == 0 ? 2 : searchResults.count
     }
     
     func tableView(_ tableView: UITableView,
@@ -261,5 +266,26 @@ extension HomeController: MKMapViewDelegate {
             return view
         }
         return nil
+    }
+}
+
+// MARK: - Map Helper Functions
+private extension HomeController {
+    func searchBy(naturalLanguageQuery: String,
+                  completion: @escaping ([MKPlacemark]) -> Void) {
+        var results = [MKPlacemark]()
+        let request = MKLocalSearch.Request()
+        request.region = mapView.region
+        request.naturalLanguageQuery = naturalLanguageQuery
+        
+        let search = MKLocalSearch(request: request)
+        search.start { response, error in
+            guard let response = response else { return }
+            
+            response.mapItems.forEach { item in
+                results.append(item.placemark)
+            }
+            completion(results)
+        }
     }
 }
