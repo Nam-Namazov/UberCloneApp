@@ -19,26 +19,41 @@ final class LoginViewController: UIViewController {
     }()
 
     private lazy var emailContainerView: UIView = {
-        let emailContainerView = UIView.makeInputContainerView(image: UIImage(named: "ic_mail_outline_white_2x")!, textField: emailTextField)
-        emailContainerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        let emailContainerView = UIView.makeInputContainerView(
+            image: UIImage(named: "ic_mail_outline_white_2x")!,
+            textField: emailTextField
+        )
+        emailContainerView.heightAnchor.constraint(
+            equalToConstant: 50
+        ).isActive = true
         return emailContainerView
     }()
     
-    private let emailTextField = UITextField.makeTextField(withPlaceholder: "Email", isSecureTextEntry: false)
+    private let emailTextField = UITextField.makeTextField(
+        withPlaceholder: "Email",
+        isSecureTextEntry: false
+    )
     
     private lazy var passwordContainerView: UIView = {
-        let passwordContainerView = UIView.makeInputContainerView(image: UIImage(named: "ic_lock_outline_white_2x")!, textField: passwordTextField)
-        passwordContainerView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        let passwordContainerView = UIView.makeInputContainerView(
+            image: UIImage(named: "ic_lock_outline_white_2x")!,
+            textField: passwordTextField
+        )
+        passwordContainerView.heightAnchor.constraint(
+            equalToConstant: 50
+        ).isActive = true
         return passwordContainerView
     }()
     
-    private let passwordTextField = UITextField.makeTextField(withPlaceholder: "Password", isSecureTextEntry: true)
+    private let passwordTextField = UITextField.makeTextField(
+        withPlaceholder: "Password",
+        isSecureTextEntry: true
+    )
     
     private let loginButton: AuthButton = {
         let loginButton = AuthButton(type: .system)
         loginButton.setTitle("Log In", for: .normal)
         loginButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        loginButton.addTarget(self, action: #selector(onLogin), for: .touchUpInside)
         return loginButton
     }()
     
@@ -55,15 +70,15 @@ final class LoginViewController: UIViewController {
             attributes: [.font: UIFont.boldSystemFont(ofSize: 16),
                          .foregroundColor: UIColor.mainBlueTint])
         )
-        dontHaveAccountButton.setAttributedTitle(dontHaveAccountAttributedText, for: .normal)
-        dontHaveAccountButton.addTarget(self, action: #selector(onSignUp), for: .touchUpInside)
+        dontHaveAccountButton.setAttributedTitle(dontHaveAccountAttributedText,
+                                                 for: .normal)
         
         return dontHaveAccountButton
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        targets()
         setup()
         layout()
         style()
@@ -79,44 +94,67 @@ final class LoginViewController: UIViewController {
         logoLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor)
         logoLabel.centerX(inView: view)
         
-        let verticalStackView = UIStackView(arrangedSubviews: [emailContainerView, passwordContainerView, loginButton])
+        let verticalStackView = UIStackView(arrangedSubviews: [emailContainerView,
+                                                               passwordContainerView,
+                                                               loginButton])
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .fillEqually
         verticalStackView.spacing = 24
         
         view.addSubview(verticalStackView)
-        verticalStackView.anchor(top: logoLabel.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingLeft: 16, paddingRight: 16)
+        verticalStackView.anchor(
+            top: logoLabel.bottomAnchor,
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            paddingTop: 40,
+            paddingLeft: 16,
+            paddingRight: 16
+        )
         
         view.addSubview(dontHaveAccountButton)
         dontHaveAccountButton.centerX(inView: view)
-        dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor, height: 32)
+        dontHaveAccountButton.anchor(bottom: view.safeAreaLayoutGuide.bottomAnchor,
+                                     height: 32)
     }
     
     private func style() {
         view.backgroundColor = .backgroundColor
     }
-
-    @objc private func onSignUp() {
-        let signUpViewController = SignUpViewController()
-        navigationController?.pushViewController(signUpViewController, animated: true)
+    
+    private func targets() {
+        loginButton.addTarget(self,
+                              action: #selector(onLogin),
+                              for: .touchUpInside)
+        dontHaveAccountButton.addTarget(self,
+                                        action: #selector(onSignUp),
+                                        for: .touchUpInside)
     }
 
-    @objc private func onLogin() {
+    @objc
+    private func onSignUp() {
+        let signUpViewController = SignUpViewController()
+        navigationController?.pushViewController(signUpViewController,
+                                                 animated: true)
+    }
+
+    @objc
+    private func onLogin() {
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
             return
         }
 
-        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+        Auth.auth().signIn(withEmail: email,
+                           password: password) { result, error in
             if let error = error {
                 print("DEBUG: Failed to log user in with error \(error.localizedDescription)")
                 return
             }
 
-            guard let homeViewController = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first?.rootViewController as? HomeController else {
+            guard let homeViewController = UIApplication.shared.windows.filter ({ $0.isKeyWindow
+            }).first?.rootViewController as? HomeViewController else {
                 return
             }
-
             homeViewController.setup()
             self.dismiss(animated: true)
         }

@@ -22,19 +22,23 @@ extension UIView {
         translatesAutoresizingMaskIntoConstraints = false
 
         if let top = top {
-            topAnchor.constraint(equalTo: top, constant: paddingTop).isActive = true
+            topAnchor.constraint(equalTo: top,
+                                 constant: paddingTop).isActive = true
         }
 
         if let left = left {
-            leftAnchor.constraint(equalTo: left, constant: paddingLeft).isActive = true
+            leftAnchor.constraint(equalTo: left,
+                                  constant: paddingLeft).isActive = true
         }
 
         if let bottom = bottom {
-            bottomAnchor.constraint(equalTo: bottom, constant: -paddingBottom).isActive = true
+            bottomAnchor.constraint(equalTo: bottom,
+                                    constant: -paddingBottom).isActive = true
         }
 
         if let right = right {
-            rightAnchor.constraint(equalTo: right, constant: -paddingRight).isActive = true
+            rightAnchor.constraint(equalTo: right,
+                                   constant: -paddingRight).isActive = true
         }
 
         if let width = width {
@@ -51,9 +55,13 @@ extension UIView {
         centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
     }
 
-    func centerY(inView view: UIView, leftAnchor: NSLayoutXAxisAnchor? = nil, paddingLeft: CGFloat = 0, constant: CGFloat = 0) {
+    func centerY(inView view: UIView,
+                 leftAnchor: NSLayoutXAxisAnchor? = nil,
+                 paddingLeft: CGFloat = 0,
+                 constant: CGFloat = 0) {
         translatesAutoresizingMaskIntoConstraints = false
-        centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: constant).isActive = true
+        centerYAnchor.constraint(equalTo: view.centerYAnchor,
+                                 constant: constant).isActive = true
         if let left = leftAnchor {
             anchor(left: left, paddingLeft: paddingLeft)
         }

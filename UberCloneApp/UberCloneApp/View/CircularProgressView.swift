@@ -15,7 +15,6 @@ final class CircularProgressView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-
         setup()
     }
     
@@ -24,19 +23,23 @@ final class CircularProgressView: UIView {
     }
 
     private func setup() {
-        pulsatingLayer = circleShapeLayer(strokeColor: .clear, fillColor: .pulsatingFillColor)
+        pulsatingLayer = circleShapeLayer(strokeColor: .clear,
+                                          fillColor: .pulsatingFillColor)
         layer.addSublayer(pulsatingLayer)
         
-        trackLayer = circleShapeLayer(strokeColor: .trackStrokeColor, fillColor: .clear)
+        trackLayer = circleShapeLayer(strokeColor: .trackStrokeColor,
+                                      fillColor: .clear)
         layer.addSublayer(trackLayer)
         trackLayer.strokeEnd = 1
         
-        progressLayer = circleShapeLayer(strokeColor: .outlineStrokeColor, fillColor: .clear)
+        progressLayer = circleShapeLayer(strokeColor: .outlineStrokeColor,
+                                         fillColor: .clear)
         layer.addSublayer(progressLayer)
         progressLayer.strokeEnd = 1
     }
     
-    private func circleShapeLayer(strokeColor: UIColor, fillColor: UIColor) -> CAShapeLayer {
+    private func circleShapeLayer(strokeColor: UIColor,
+                                  fillColor: UIColor) -> CAShapeLayer {
         let layer = CAShapeLayer()
         
         let center = CGPoint(x: 0, y: 32)

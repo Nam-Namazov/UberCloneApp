@@ -21,7 +21,7 @@
 		99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1528F18FB900C4E48C /* UITextField.swift */; };
 		99F05E1A28F191A200C4E48C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1928F191A200C4E48C /* SignUpViewController.swift */; };
 		99F05E1C28F19AE500C4E48C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */; };
-		99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1E28F1AEBB00C4E48C /* HomeController.swift */; };
+		99F05E1F28F1AEBB00C4E48C /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E1E28F1AEBB00C4E48C /* HomeViewController.swift */; };
 		99F05E2228F29BAD00C4E48C /* LocationInputActivationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */; };
 		99F05E2428F29FA800C4E48C /* LocationInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2328F29FA800C4E48C /* LocationInputView.swift */; };
 		99F05E2628F2A53F00C4E48C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E2528F2A53F00C4E48C /* LocationCell.swift */; };
@@ -55,7 +55,7 @@
 		99F05E1528F18FB900C4E48C /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
 		99F05E1928F191A200C4E48C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		99F05E1B28F19AE500C4E48C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		99F05E1E28F1AEBB00C4E48C /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		99F05E1E28F1AEBB00C4E48C /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputActivationView.swift; sourceTree = "<group>"; };
 		99F05E2328F29FA800C4E48C /* LocationInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationInputView.swift; sourceTree = "<group>"; };
 		99F05E2528F2A53F00C4E48C /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
@@ -139,6 +139,11 @@
 		99F05E0228F189B100C4E48C /* View */ = {
 			isa = PBXGroup;
 			children = (
+				99F05E3128F5532A00C4E48C /* RideAction */,
+				99F05E3C28F5CB5500C4E48C /* CircularProgressView.swift */,
+				99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */,
+				99F05E2328F29FA800C4E48C /* LocationInputView.swift */,
+				99F05E2528F2A53F00C4E48C /* LocationCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -216,23 +221,10 @@
 		99F05E1D28F1AEAB00C4E48C /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				99F05E2028F29B9900C4E48C /* View */,
-				99F05E1E28F1AEBB00C4E48C /* HomeController.swift */,
+				99F05E1E28F1AEBB00C4E48C /* HomeViewController.swift */,
 				99F05E3A28F5CA6D00C4E48C /* PickupViewController.swift */,
 			);
 			path = Main;
-			sourceTree = "<group>";
-		};
-		99F05E2028F29B9900C4E48C /* View */ = {
-			isa = PBXGroup;
-			children = (
-				99F05E3128F5532A00C4E48C /* RideAction */,
-				99F05E3C28F5CB5500C4E48C /* CircularProgressView.swift */,
-				99F05E2128F29BAD00C4E48C /* LocationInputActivationView.swift */,
-				99F05E2328F29FA800C4E48C /* LocationInputView.swift */,
-				99F05E2528F2A53F00C4E48C /* LocationCell.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		99F05E3128F5532A00C4E48C /* RideAction */ = {
@@ -372,7 +364,7 @@
 				99F05E3328F5533600C4E48C /* RideActionView.swift in Sources */,
 				99F05E1428F18F9500C4E48C /* UIView.swift in Sources */,
 				99F05E0828F18A0B00C4E48C /* LoginViewController.swift in Sources */,
-				99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */,
+				99F05E1F28F1AEBB00C4E48C /* HomeViewController.swift in Sources */,
 				99F05E3928F5C46800C4E48C /* Trip.swift in Sources */,
 				99F05E3728F55E6400C4E48C /* MKMapView + Zoom.swift in Sources */,
 				99F05E2E28F305C000C4E48C /* LocationHandler.swift in Sources */,

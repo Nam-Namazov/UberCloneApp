@@ -10,6 +10,13 @@ import MapKit
 
 final class LocationCell: UITableViewCell {
     
+    var placemark: MKPlacemark? {
+        didSet {
+            placeTitleLabel.text = placemark?.name
+            addressLabel.text = placemark?.address
+        }
+    }
+    
     private let placeTitleLabel: UILabel = {
         let placeTitleLabel = UILabel()
         placeTitleLabel.font = .boldSystemFont(ofSize: 14)
@@ -26,13 +33,6 @@ final class LocationCell: UITableViewCell {
         return addressLabel
     }()
 
-    var placemark: MKPlacemark? {
-        didSet {
-            placeTitleLabel.text = placemark?.name
-            addressLabel.text = placemark?.address
-        }
-    }
-
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -45,13 +45,16 @@ final class LocationCell: UITableViewCell {
     }
 
     private func layout() {
-        let verticalStackView = UIStackView(arrangedSubviews: [placeTitleLabel, addressLabel])
+        let verticalStackView = UIStackView(arrangedSubviews: [placeTitleLabel,
+                                                               addressLabel])
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .fillEqually
         verticalStackView.spacing = 4
         
         addSubview(verticalStackView)
-        verticalStackView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
+        verticalStackView.centerY(inView: self,
+                                  leftAnchor: leftAnchor,
+                                  paddingLeft: 12)
         
         addSubview(verticalStackView)
     }
