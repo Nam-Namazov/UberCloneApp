@@ -8,7 +8,9 @@
 import UIKit
 
 extension UIView {
-    static func makeInputContainerView(image: UIImage, textField: UITextField? = nil, segmentedControl: UISegmentedControl? = nil) -> UIView {
+    static func makeInputContainerView(image: UIImage,
+                                       textField: UITextField? = nil,
+                                       segmentedControl: UISegmentedControl? = nil) -> UIView {
         let inputContainerView = UIView()
         let imageView = UIImageView()
         imageView.image = image
@@ -17,7 +19,10 @@ extension UIView {
         inputContainerView.addSubview(imageView)
         if let textField = textField {
             imageView.centerY(inView: inputContainerView)
-            imageView.anchor(left: inputContainerView.leftAnchor, paddingLeft: 8, width: 24, height: 24)
+            imageView.anchor(left: inputContainerView.leftAnchor,
+                             paddingLeft: 8,
+                             width: 24,
+                             height: 24)
 
             inputContainerView.addSubview(textField)
             textField.centerY(inView: inputContainerView)
@@ -31,9 +36,16 @@ extension UIView {
         }
 
         if let segmentedControl = segmentedControl {
-            imageView.anchor(top: inputContainerView.topAnchor, left: inputContainerView.leftAnchor, paddingLeft: 8, width: 24, height: 24)
+            imageView.anchor(top: inputContainerView.topAnchor,
+                             left: inputContainerView.leftAnchor,
+                             paddingLeft: 8,
+                             width: 24,
+                             height: 24)
             inputContainerView.addSubview(segmentedControl)
-            segmentedControl.anchor(left: inputContainerView.leftAnchor, right: inputContainerView.rightAnchor, paddingLeft: 8, paddingRight: 8)
+            segmentedControl.anchor(left: inputContainerView.leftAnchor,
+                                    right: inputContainerView.rightAnchor,
+                                    paddingLeft: 8,
+                                    paddingRight: 8)
             segmentedControl.centerY(inView: inputContainerView, constant: 8)
 
         }

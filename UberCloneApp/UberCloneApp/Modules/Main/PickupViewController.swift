@@ -17,7 +17,10 @@ final class PickupViewController: UIViewController {
     weak var delegate: PickupVCDelegate?
 
     private lazy var circularProgressView: CircularProgressView = {
-        let frame = CGRect(x: 0, y: 0, width: 360, height: 360)
+        let frame = CGRect(x: 0,
+                           y: 0,
+                           width: 360,
+                           height: 360)
         let cp = CircularProgressView(frame: frame)
         
         cp.addSubview(mapView)
@@ -39,7 +42,6 @@ final class PickupViewController: UIViewController {
     private lazy var cancelButton: UIButton = {
         let cancelButton = UIButton(type: .system)
         cancelButton.setImage(UIImage(named: "baseline_clear_white_36pt_2x")?.withRenderingMode(.alwaysOriginal), for: .normal)
-        cancelButton.addTarget(self, action: #selector(handleDismissal), for: .touchUpInside)
         return cancelButton
     }()
     
@@ -53,7 +55,6 @@ final class PickupViewController: UIViewController {
     
     private lazy var acceptTripButton: UIButton = {
         let acceptTripButton = UIButton(type: .system)
-        acceptTripButton.addTarget(self, action: #selector(handleAcceptTrip), for: .touchUpInside)
         acceptTripButton.backgroundColor = .white
         acceptTripButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
         acceptTripButton.setTitleColor(.black, for: .normal)
@@ -69,8 +70,9 @@ final class PickupViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        perform(#selector(animateProgress), with: nil, afterDelay: 0.5)
+        perform(#selector(animateProgress),
+                with: nil,
+                afterDelay: 0.5)
         setup()
         layout()
         style()
@@ -86,7 +88,9 @@ final class PickupViewController: UIViewController {
     }
 
     private func setup() {
-        let region = MKCoordinateRegion(center: trip.pickupCoordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+        let region = MKCoordinateRegion(center: trip.pickupCoordinates,
+                                        latitudinalMeters: 1000,
+                                        longitudinalMeters: 1000)
         mapView.setRegion(region, animated: false)
         
         let anno = MKPointAnnotation()
@@ -97,7 +101,9 @@ final class PickupViewController: UIViewController {
     
     private func layout() {
         view.addSubview(cancelButton)
-        cancelButton.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.leftAnchor, paddingLeft: 16)
+        cancelButton.anchor(top: view.safeAreaLayoutGuide.topAnchor,
+                            left: view.leftAnchor,
+                            paddingLeft: 16)
         
         view.addSubview(circularProgressView)
         circularProgressView.setDimensions(height: 360, width: 360)
@@ -127,17 +133,29 @@ final class PickupViewController: UIViewController {
     private func style() {
         view.backgroundColor = .backgroundColor
     }
+    
+    private func targets() {
+        cancelButton.addTarget(self,
+                               action: #selector(handleDismissal),
+                               for: .touchUpInside)
+        acceptTripButton.addTarget(self,
+                                   action: #selector(handleAcceptTrip),
+                                   for: .touchUpInside)
+    }
 
-    @objc private func handleDismissal() {
+    @objc
+    private func handleDismissal() {
         dismiss(animated: true)
     }
 
-    @objc private func animateProgress() {
+    @objc
+    private func animateProgress() {
         circularProgressView.animatePulsatingLayer()
         circularProgressView.setProgressWithAnimation(duration: 10, value: 0)
     }
 
-    @objc private func handleAcceptTrip() {
+    @objc
+    private func handleAcceptTrip() {
         FirebaseService.shared.acceptTrip(trip: trip) { error, ref in
             self.delegate?.didAcceptTrip(self.trip)
         }

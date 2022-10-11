@@ -12,7 +12,7 @@ protocol RideActionViewDelegate: AnyObject {
     func uploadTrip(_ view: RideActionView)
 }
 
-class RideActionView: UIView {
+final class RideActionView: UIView {
 
     enum Configuration {
         case requestRide
@@ -47,7 +47,9 @@ class RideActionView: UIView {
         addressLabel.textAlignment = .center
         addressLabel.numberOfLines = 1
         addressLabel.lineBreakMode = .byTruncatingTail
-        addressLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 30).isActive = true
+        addressLabel.widthAnchor.constraint(
+            equalToConstant: UIScreen.main.bounds.width - 30
+        ).isActive = true
         return addressLabel
     }()
 
@@ -83,7 +85,9 @@ class RideActionView: UIView {
         actionButton.setTitle("CONFIRM UBERX", for: .normal)
         actionButton.setTitleColor(.white, for: .normal)
         actionButton.titleLabel?.font = .boldSystemFont(ofSize: 20)
-        actionButton.addTarget(self, action: #selector(onRide), for: .touchUpInside)
+        actionButton.addTarget(self,
+                               action: #selector(onRide),
+                               for: .touchUpInside)
         return actionButton
     }()
 
@@ -149,13 +153,24 @@ class RideActionView: UIView {
         let separatorView = UIView()
         separatorView.backgroundColor = .lightGray
         addSubview(separatorView)
-        separatorView.anchor(top: uberXLabel.bottomAnchor, left: leftAnchor, right: rightAnchor, paddingTop: 4, height: 0.75)
+        separatorView.anchor(top: uberXLabel.bottomAnchor,
+                             left: leftAnchor,
+                             right: rightAnchor,
+                             paddingTop: 4,
+                             height: 0.75)
         
         addSubview(actionButton)
-        actionButton.anchor(left: leftAnchor, bottom: safeAreaLayoutGuide.bottomAnchor, right: rightAnchor, paddingLeft: 12, paddingBottom: 12, paddingRight: 12, height: 50)
+        actionButton.anchor(left: leftAnchor,
+                            bottom: safeAreaLayoutGuide.bottomAnchor,
+                            right: rightAnchor,
+                            paddingLeft: 12,
+                            paddingBottom: 12,
+                            paddingRight: 12,
+                            height: 50)
     }
 
-    @objc private func onRide() {
+    @objc
+    private func onRide() {
         delegate?.uploadTrip(self)
     }
 }

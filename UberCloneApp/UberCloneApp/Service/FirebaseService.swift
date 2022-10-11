@@ -20,7 +20,8 @@ struct FirebaseService {
     
     private init() { }
     
-    func fetchUserData(uid: String, completion: @escaping (User) -> Void) {
+    func fetchUserData(uid: String,
+                       completion: @escaping (User) -> Void) {
         REF_USERS.child(uid).observeSingleEvent(of: .value) { snapshot in
 
             guard let dictionary = snapshot.value as? [String: Any] else { return }
@@ -32,11 +33,14 @@ struct FirebaseService {
         }
     }
     
-    func fetchDrivers(location: CLLocation, completion: @escaping(User) -> Void) {
+    func fetchDrivers(location: CLLocation,
+                      completion: @escaping(User) -> Void) {
         let geofire = GeoFire(firebaseRef: REF_DRIVER_LOCATIONS)
         REF_DRIVER_LOCATIONS.observe(.value) { snapshot in
 
-            geofire.query(at: location, withRadius: 50).observe(.keyEntered, with: { uid, location in
+            geofire.query(at: location,
+                          withRadius: 50).observe(.keyEntered,
+                                                  with: { uid, location in
 
                 self.fetchUserData(uid: uid) { user in
 
@@ -74,11 +78,13 @@ struct FirebaseService {
         }
     }
     
-    func acceptTrip(trip: Trip, completion: @escaping (Error?, DatabaseReference) -> ()) {
+    func acceptTrip(trip: Trip,
+                    completion: @escaping (Error?, DatabaseReference) -> ()) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let values = ["driverUid": uid,
                       "state": TripState.accepted.rawValue] as [String : Any]
-        REF_TRIPS.child(trip.passengerUid).updateChildValues(values, withCompletionBlock: completion)
+        REF_TRIPS.child(trip.passengerUid).updateChildValues(values,
+                                                             withCompletionBlock: completion)
     }
     
     func observeCurrentTrip(completion: @escaping (Trip) -> ()) {
