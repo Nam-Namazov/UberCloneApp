@@ -359,7 +359,7 @@ extension HomeController: UITableViewDelegate {
                 !$0.isKind(of: DriverAnnotation.self)
             }
             
-            self.mapView.showAnnotations(annotations, animated: true)
+            self.mapView.zoomToFit(annotations: annotations)
             self.animateRideActionView(shouldShow: true,
                                        destination: selectedPlacemark)
         }
