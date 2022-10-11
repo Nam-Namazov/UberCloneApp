@@ -134,6 +134,7 @@ final class HomeController: UIViewController {
     
     private func configureRideActionView() {
         view.addSubview(rideActionView)
+        rideActionView.delegate = self
         rideActionView.frame = CGRect(x: 0,
                                       y: view.frame.height,
                                       width: view.frame.width,
@@ -442,6 +443,24 @@ private extension HomeController {
         }
         if mapView.overlays.count > 0 {
             mapView.removeOverlay(mapView.overlays[0])
+        }
+    }
+}
+
+extension HomeController: RideActionViewDelegate {
+    func uploadTrip(_ view: RideActionView) {
+        guard let pickupCoordinates = locationManager?.location?.coordinate,
+              let destinationCoordinates = view.destination?.coordinate else {
+            return
+        }
+        
+        Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { err, ref in
+            if let error = err {
+                print("Failed to upload trip with error \(err)")
+                return
+            }
+            
+            print("Did upload trip successfully")
         }
     }
 }
