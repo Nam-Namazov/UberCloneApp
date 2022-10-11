@@ -29,6 +29,7 @@ final class HomeController: UIViewController {
     private var searchResults = [MKPlacemark]()
     private var actionButtonConfig = ActionButtonConfiguration()
     private var route: MKRoute?
+    private let rideActionView = RideActionView()
     
     private var user: User? {
         didSet {
@@ -60,6 +61,7 @@ final class HomeController: UIViewController {
 
     private func configureUI() {
         configureMapView()
+        configureRideActionView()
         configureInputActivationView()
         configureTableView()
     }
@@ -127,6 +129,14 @@ final class HomeController: UIViewController {
                                  height: height)
         tableView.tableFooterView = UIView()
         view.addSubview(tableView)
+    }
+    
+    private func configureRideActionView() {
+        view.addSubview(rideActionView)
+        rideActionView.frame = CGRect(x: 0,
+                                      y: view.frame.height - 300,
+                                      width: view.frame.width,
+                                      height: 300)
     }
     
     private func dismissLocationView(completion: ((Bool) -> Void)? = nil) {
