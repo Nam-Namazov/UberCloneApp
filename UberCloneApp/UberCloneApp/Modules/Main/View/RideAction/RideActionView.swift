@@ -34,7 +34,6 @@ class RideActionView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = .systemFont(ofSize: 18)
-        label.text = "Test Address Title"
         label.textAlignment = .center
         return label
     }()
@@ -43,7 +42,6 @@ class RideActionView: UIView {
         let addressLabel = UILabel()
         addressLabel.textColor = .lightGray
         addressLabel.font = .systemFont(ofSize: 16)
-        addressLabel.text = "123 M St, NW Washington DC"
         addressLabel.textAlignment = .center
         addressLabel.numberOfLines = 1
         addressLabel.lineBreakMode = .byTruncatingTail
