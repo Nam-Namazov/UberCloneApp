@@ -226,6 +226,7 @@ final class HomeController: UIViewController {
             print("handle show menu")
         case .dismissActionView:
             removeAnnotationsAndOverlays()
+            mapView.showAnnotations(mapView.annotations, animated: true)
             
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
@@ -317,9 +318,6 @@ extension HomeController: UITableViewDataSource {
 extension HomeController: UITableViewDelegate {
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
-        
-        tableView.deselectRow(at: indexPath, animated: true)
-        
         let selectedPlacemark = searchResults[indexPath.row]
         
         configureActionButton(config: .dismissActionView)
@@ -332,6 +330,12 @@ extension HomeController: UITableViewDelegate {
             annotation.coordinate = selectedPlacemark.coordinate
             self.mapView.addAnnotation(annotation)
             self.mapView.selectAnnotation(annotation, animated: true)
+            
+            let annotations = self.mapView.annotations.filter {
+                !$0.isKind(of: DriverAnnotation.self)
+            }
+            
+            self.mapView.showAnnotations(annotations, animated: true)
         }
     }
     
