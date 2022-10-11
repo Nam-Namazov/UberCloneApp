@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import MapKit
 
 final class LocationCell: UITableViewCell {
     static let identifier = "LocationCell"
     
+    public var placemark: MKPlacemark? {
+        didSet {
+            placeTitleLabel.text = placemark?.name
+            addressLabel.text = placemark?.address
+        }
+    }
+    
     private let placeTitleLabel: UILabel = {
         let placeTitleLabel = UILabel()
         placeTitleLabel.font = .boldSystemFont(ofSize: 14)
-        placeTitleLabel.text = "place title"
         return placeTitleLabel
     }()
     
@@ -24,12 +31,13 @@ final class LocationCell: UITableViewCell {
         addressLabel.numberOfLines = 1
         addressLabel.lineBreakMode = .byTruncatingTail
         addressLabel.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width-30).isActive = true
-        addressLabel.text = "address"
         return addressLabel
     }()
 
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(style: UITableViewCell.CellStyle,
+                  reuseIdentifier: String?) {
+        super.init(style: style,
+                   reuseIdentifier: reuseIdentifier)
         layout()
     }
     
@@ -38,13 +46,17 @@ final class LocationCell: UITableViewCell {
     }
 
     private func layout() {
-        let verticalStackView = UIStackView(arrangedSubviews: [placeTitleLabel, addressLabel])
+        let verticalStackView = UIStackView(
+            arrangedSubviews: [placeTitleLabel, addressLabel]
+        )
         verticalStackView.axis = .vertical
         verticalStackView.distribution = .fillEqually
         verticalStackView.spacing = 4
         
         addSubview(verticalStackView)
-        verticalStackView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 12)
+        verticalStackView.centerY(inView: self,
+                                  leftAnchor: leftAnchor,
+                                  paddingLeft: 12)
         
         addSubview(verticalStackView)
     }
