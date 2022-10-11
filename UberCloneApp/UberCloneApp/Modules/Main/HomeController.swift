@@ -26,6 +26,7 @@ final class HomeController: UIViewController {
     private let tableView = UITableView()
     private let annotationIdentifier = "DriverAnnotation"
     private final let locationInputViewHeight: CGFloat = 200
+    private final let rideActionViewHeight: CGFloat = 300
     private var searchResults = [MKPlacemark]()
     private var actionButtonConfig = ActionButtonConfiguration()
     private var route: MKRoute?
@@ -134,9 +135,9 @@ final class HomeController: UIViewController {
     private func configureRideActionView() {
         view.addSubview(rideActionView)
         rideActionView.frame = CGRect(x: 0,
-                                      y: view.frame.height - 300,
+                                      y: view.frame.height,
                                       width: view.frame.width,
-                                      height: 300)
+                                      height: rideActionViewHeight)
     }
     
     private func dismissLocationView(completion: ((Bool) -> Void)? = nil) {
@@ -145,6 +146,14 @@ final class HomeController: UIViewController {
             self.tableView.frame.origin.y = self.view.frame.height
             self.locationInputView.removeFromSuperview()
         }, completion: completion)
+    }
+    
+    private func animateRideActionView(shouldShow: Bool) {
+        let yOrigin = shouldShow ? self.view.frame.height - self.rideActionViewHeight : self.view.frame.height
+        
+        UIView.animate(withDuration: 0.3) {
+            self.rideActionView.frame.origin.y = yOrigin
+        }
     }
     
     fileprivate func configureActionButton(config: ActionButtonConfiguration) {
@@ -157,7 +166,6 @@ final class HomeController: UIViewController {
             actionButtonConfig = .dismissActionView
         }
     }
-    
     
     private func fetchUserData() {
         guard let currentUid = Auth.auth().currentUser?.uid else { return }
@@ -241,6 +249,7 @@ final class HomeController: UIViewController {
             UIView.animate(withDuration: 0.3) {
                 self.inputActivationView.alpha = 1
                 self.configureActionButton(config: .showMenu)
+                self.animateRideActionView(shouldShow: false)
             }
         }
     }
@@ -346,6 +355,7 @@ extension HomeController: UITableViewDelegate {
             }
             
             self.mapView.showAnnotations(annotations, animated: true)
+            self.animateRideActionView(shouldShow: true)
         }
     }
     
