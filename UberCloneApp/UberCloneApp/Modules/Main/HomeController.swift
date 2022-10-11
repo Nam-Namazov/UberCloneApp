@@ -35,6 +35,10 @@ final class HomeController: UIViewController {
     private var user: User? {
         didSet {
             locationInputView.user = user
+            if user?.accountType == .passenger {
+                fetchDrivers()
+                configureInputActivationView()
+            }
         }
     }
     
@@ -57,17 +61,12 @@ final class HomeController: UIViewController {
     func configure() {
         configureUI()
         fetchUserData()
-        fetchDrivers()
     }
 
     private func configureUI() {
         configureMapView()
         configureRideActionView()
-        configureInputActivationView()
-        configureTableView()
-    }
-    
-    private func configureInputActivationView() {
+        
         view.addSubview(actionButton)
         actionButton.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
@@ -78,6 +77,10 @@ final class HomeController: UIViewController {
             height: 30
         )
         
+        configureTableView()
+    }
+    
+    private func configureInputActivationView() {
         view.addSubview(inputActivationView)
         inputActivationView.centerX(inView: view)
         inputActivationView.setDimensions(height: 50,
@@ -134,6 +137,7 @@ final class HomeController: UIViewController {
     
     private func configureRideActionView() {
         view.addSubview(rideActionView)
+        rideActionView.delegate = self
         rideActionView.frame = CGRect(x: 0,
                                       y: view.frame.height,
                                       width: view.frame.width,
@@ -442,6 +446,24 @@ private extension HomeController {
         }
         if mapView.overlays.count > 0 {
             mapView.removeOverlay(mapView.overlays[0])
+        }
+    }
+}
+
+extension HomeController: RideActionViewDelegate {
+    func uploadTrip(_ view: RideActionView) {
+        guard let pickupCoordinates = locationManager?.location?.coordinate,
+              let destinationCoordinates = view.destination?.coordinate else {
+            return
+        }
+        
+        Service.shared.uploadTrip(pickupCoordinates, destinationCoordinates) { err, ref in
+            if let error = err {
+                print("Failed to upload trip with error \(err)")
+                return
+            }
+            
+            print("Did upload trip successfully")
         }
     }
 }
