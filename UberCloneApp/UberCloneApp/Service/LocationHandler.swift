@@ -16,6 +16,7 @@ final class LocationHandler: NSObject, CLLocationManagerDelegate {
     
     override init() {
         super.init()
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
     }
@@ -26,4 +27,3 @@ final class LocationHandler: NSObject, CLLocationManagerDelegate {
         }
     }
 }
-

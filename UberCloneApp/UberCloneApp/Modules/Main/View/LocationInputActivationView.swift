@@ -19,6 +19,7 @@ final class LocationInputActivationView: UIView {
         let indicatorView = UIView()
         indicatorView.backgroundColor = .black
         indicatorView.setDimensions(height: 6, width: 6)
+        
         return indicatorView
     }()
 
@@ -27,12 +28,14 @@ final class LocationInputActivationView: UIView {
         placeholderLabel.text = "Where to?"
         placeholderLabel.font = .systemFont(ofSize: 18)
         placeholderLabel.textColor = .darkGray
+        
         return placeholderLabel
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        tapGesture()
+        
+        setup()
         layout()
         style()
     }
@@ -41,34 +44,25 @@ final class LocationInputActivationView: UIView {
         fatalError("init(coder:) has not been implemented. No storyboards")
     }
 
-
+    private func setup() {
+        let inputLocationTap = UITapGestureRecognizer(target: self, action: #selector(presentLocationInputView))
+        addGestureRecognizer(inputLocationTap)
+    }
+    
     private func layout() {
         addSubview(indicatorView)
-        indicatorView.centerY(inView: self,
-                              leftAnchor: leftAnchor,
-                              paddingLeft: 16)
+        indicatorView.centerY(inView: self, leftAnchor: leftAnchor, paddingLeft: 16)
         
         addSubview(placeholderLabel)
-        placeholderLabel.centerY(inView: self,
-                                 leftAnchor: indicatorView.rightAnchor,
-                                 paddingLeft: 20)
+        placeholderLabel.centerY(inView: self, leftAnchor: indicatorView.rightAnchor, paddingLeft: 20)
     }
 
     private func style() {
         backgroundColor = .white
         addShadow()
     }
-    
-    private func tapGesture() {
-        let inputLocationTap = UITapGestureRecognizer(
-            target: self,
-            action: #selector(presentLocationInputView)
-        )
-        addGestureRecognizer(inputLocationTap)
-    }
 
-    @objc
-    private func presentLocationInputView() {
+    @objc private func presentLocationInputView() {
         delegate?.presentLocationInputView()
     }
 }

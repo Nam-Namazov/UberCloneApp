@@ -15,28 +15,20 @@ protocol LocationInputViewDelegate: AnyObject {
 final class LocationInputView: UIView {
     
     weak var delegate: LocationInputViewDelegate?
-    var user: User? {
-        didSet {
-            fullnameTitleLabel.text = user?.fullname
-        }
-    }
-    
-    let fullnameTitleLabel: UILabel = {
-        let fullnameTitleLabel = UILabel()
-        fullnameTitleLabel.font = UIFont.systemFont(ofSize: 16)
-        fullnameTitleLabel.textColor = .darkGray
-        return fullnameTitleLabel
-    }()
     
     private lazy var backButton: UIButton = {
         let backButton = UIButton(type: .system)
-        backButton.setImage(
-            UIImage(
-                named: "baseline_arrow_back_black_36dp-1"
-            )!.withRenderingMode(.alwaysOriginal),
-            for: .normal
-        )
+        backButton.setImage(UIImage(named: "baseline_arrow_back_black_36dp-1")!.withRenderingMode(.alwaysOriginal), for: .normal)
+        backButton.addTarget(self, action: #selector(onBack), for: .touchUpInside)
         return backButton
+    }()
+    
+    let fullnameTitleLabel: UILabel = {
+        let fullnameTitleLabel = UILabel()
+        fullnameTitleLabel.text = "John Doe"
+        fullnameTitleLabel.font = UIFont.systemFont(ofSize: 16)
+        fullnameTitleLabel.textColor = .darkGray
+        return fullnameTitleLabel
     }()
     
     private let startLocationIndicatorView: UIView = {
@@ -66,10 +58,13 @@ final class LocationInputView: UIView {
         startingLocationTextField.backgroundColor = .systemGroupedBackground
         startingLocationTextField.isEnabled = false
         startingLocationTextField.font = UIFont.systemFont(ofSize: 14)
+        
         let paddingView = UIView()
         paddingView.setDimensions(height: 30, width: 8)
+        
         startingLocationTextField.leftView = paddingView
         startingLocationTextField.leftViewMode = .always
+        
         return startingLocationTextField
     }()
     
@@ -80,17 +75,19 @@ final class LocationInputView: UIView {
         destinationLocationTextField.returnKeyType = .search
         destinationLocationTextField.font = .systemFont(ofSize: 14)
         destinationLocationTextField.delegate = self
+        
         let paddingView = UIView()
         paddingView.setDimensions(height: 30, width: 8)
+        
         destinationLocationTextField.leftView = paddingView
         destinationLocationTextField.leftViewMode = .always
-        destinationLocationTextField.delegate = self
+        
         return destinationLocationTextField
     }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        targets()
+
         layout()
         style()
     }
@@ -101,12 +98,7 @@ final class LocationInputView: UIView {
     
     private func layout() {
         addSubview(backButton)
-        backButton.anchor(top: topAnchor,
-                          left: leftAnchor,
-                          paddingTop: 44,
-                          paddingLeft: 14,
-                          width: 24,
-                          height: 25)
+        backButton.anchor(top: topAnchor, left: leftAnchor, paddingTop: 44, paddingLeft: 14, width: 24, height: 25)
         
         addSubview(fullnameTitleLabel)
         fullnameTitleLabel.centerY(inView: backButton)
@@ -135,18 +127,10 @@ final class LocationInputView: UIView {
         )
         
         addSubview(startLocationIndicatorView)
-        startLocationIndicatorView.centerY(
-            inView: startingLocationTextField,
-            leftAnchor: leftAnchor,
-            paddingLeft: 20
-        )
+        startLocationIndicatorView.centerY(inView: startingLocationTextField, leftAnchor: leftAnchor, paddingLeft: 20)
         
         addSubview(destinationIndicatorView)
-        destinationIndicatorView.centerY(
-            inView: destinationLocationTextField,
-            leftAnchor: leftAnchor,
-            paddingLeft: 20
-        )
+        destinationIndicatorView.centerY(inView: destinationLocationTextField, leftAnchor: leftAnchor, paddingLeft: 20)
         
         addSubview(linkingView)
         linkingView.centerX(inView: startLocationIndicatorView)
@@ -163,15 +147,8 @@ final class LocationInputView: UIView {
         backgroundColor = .white
         addShadow()
     }
-    
-    private func targets() {
-        backButton.addTarget(self,
-                             action: #selector(onBack),
-                             for: .touchUpInside)
-    }
 
-    @objc
-    private func onBack() {
+    @objc private func onBack() {
         delegate?.dismisslocationInputView()
     }
 }
