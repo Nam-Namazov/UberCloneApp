@@ -33,6 +33,7 @@
 		99F05E3328F5533600C4E48C /* RideActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E3228F5533600C4E48C /* RideActionView.swift */; };
 		99F05E3528F5536A00C4E48C /* ButtonAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E3428F5536A00C4E48C /* ButtonAction.swift */; };
 		99F05E3728F55E6400C4E48C /* MKMapView + Zoom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E3628F55E6400C4E48C /* MKMapView + Zoom.swift */; };
+		99F05E3928F5C46800C4E48C /* Trip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F05E3828F5C46800C4E48C /* Trip.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		99F05E3228F5533600C4E48C /* RideActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RideActionView.swift; sourceTree = "<group>"; };
 		99F05E3428F5536A00C4E48C /* ButtonAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonAction.swift; sourceTree = "<group>"; };
 		99F05E3628F55E6400C4E48C /* MKMapView + Zoom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MKMapView + Zoom.swift"; sourceTree = "<group>"; };
+		99F05E3828F5C46800C4E48C /* Trip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trip.swift; sourceTree = "<group>"; };
 		A2ADCC8CE6C253598AD2A849 /* Pods_UberCloneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberCloneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D6004C20360952E03A52C2 /* Pods-UberCloneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberCloneApp.release.xcconfig"; path = "Target Support Files/Pods-UberCloneApp/Pods-UberCloneApp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -142,6 +144,7 @@
 			children = (
 				99F05E2B28F2D6D300C4E48C /* User.swift */,
 				99F05E2F28F312C000C4E48C /* DriverAnnotation.swift */,
+				99F05E3828F5C46800C4E48C /* Trip.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				99F05E1428F18F9500C4E48C /* UIView.swift in Sources */,
 				99F05E0828F18A0B00C4E48C /* LoginController.swift in Sources */,
 				99F05E1F28F1AEBB00C4E48C /* HomeController.swift in Sources */,
+				99F05E3928F5C46800C4E48C /* Trip.swift in Sources */,
 				99F05E3728F55E6400C4E48C /* MKMapView + Zoom.swift in Sources */,
 				99F05E2E28F305C000C4E48C /* LocationHandler.swift in Sources */,
 				99F05E1628F18FB900C4E48C /* UITextField.swift in Sources */,

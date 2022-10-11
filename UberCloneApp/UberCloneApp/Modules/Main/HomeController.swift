@@ -35,6 +35,10 @@ final class HomeController: UIViewController {
     private var user: User? {
         didSet {
             locationInputView.user = user
+            if user?.accountType == .passenger {
+                fetchDrivers()
+                configureInputActivationView()
+            }
         }
     }
     
@@ -57,17 +61,12 @@ final class HomeController: UIViewController {
     func configure() {
         configureUI()
         fetchUserData()
-        fetchDrivers()
     }
 
     private func configureUI() {
         configureMapView()
         configureRideActionView()
-        configureInputActivationView()
-        configureTableView()
-    }
-    
-    private func configureInputActivationView() {
+        
         view.addSubview(actionButton)
         actionButton.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
@@ -78,6 +77,10 @@ final class HomeController: UIViewController {
             height: 30
         )
         
+        configureTableView()
+    }
+    
+    private func configureInputActivationView() {
         view.addSubview(inputActivationView)
         inputActivationView.centerX(inView: view)
         inputActivationView.setDimensions(height: 50,
